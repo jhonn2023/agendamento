@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: Arial, sans-serif;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #5f9ea0;
+    height: 8vh;
+  }
+  
+  main {
+    background: url("bg.jpg") no-repeat center center;
+    background-size: cover;
+    height: 92vh;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    border-radius: 5px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 999px) {
+    body {
+        overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #23232e;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 70%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .close {
+      float: right;
+      cursor: pointer;
+    }
+  
+    .close:hover {
+      color: #aaa;
+    }
+    
+    .container {
+      max-width: 200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 25px;
+        transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 20px auto;
+
+      }
+      
+      .form:hover {
+        transform: translateX(-0.5em) translateY(-0.5em);
+        border: 1px solid #171717;
+        box-shadow: 10px 10px 0px #666666;
+      }
+      
+      .heading {
+        color: black;
+        padding-bottom: 2em;
+        text-align: center;
+        font-weight: bold;
+      }
+      
+      .input {
+        border-radius: 5px;
+        border: 1px solid whitesmoke;
+        background-color: whitesmoke;
+        outline: none;
+        padding: 0.7em;
+        transition: .4s ease-in-out;
+      }
+      
+      .input:hover {
+        box-shadow: 6px 6px 0px #969696,
+                   -3px -3px 10px #ffffff;
+      }
+      
+      .input:focus {
+        background: #ffffff;
+        box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+      }
+      
+      .form .btn {
+        margin-top: 2em;
+        align-self: center;
+        padding: 0.7em;
+        padding-left: 1em;
+        padding-right: 1em;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        transition: .4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+      }
+      
+      .form .btn:hover {
+        box-shadow: 6px 6px 0px #969696,
+                   -3px -3px 10px #ffffff;
+        transform: translateX(-0.5em) translateY(-0.5em);
+      }
+      
+      .form .btn:active {
+        transition: .2s;
+        transform: translateX(0em) translateY(0em);
+        box-shadow: none;
+      }

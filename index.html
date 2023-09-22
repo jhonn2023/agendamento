@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Agendamento</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+<body>
+     <header>
+      <nav>
+        <a class="logo" href="inicio.html">Agendamento</a>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+          <li><a href="inicio.html">Início</a></li>
+          <li><a href="Cadastrar Aluno.html">Cadastrar Aluno</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+          <li><a href="historico.html">Histórico</a></li>
+        </ul>
+      </nav>
+    </header>
+    <script src="mobile-navbar.js"></script>
+  <div class="container">
+    <h1>Criar Agendamento</h1>
+    <div class="form">
+      <input type="text" id="nome" placeholder="Nome">
+      <input type="tel" id="telefone" placeholder="Telefone">
+      <input type="time" id="horario" placeholder="Horário">
+      <ul class="dias-semana-list">
+        <li class="destaque">Selecione os dias da semana</li>
+        <li>
+      <input type="checkbox" id="segunda" name="diasSemana" value="Segunda-feira">
+      <label for="segunda">Segunda-feira</label>
+        </li>
+      <li>
+      <input type="checkbox" id="terca" name="diasSemana" value="Terça-feira">
+      <label for="terca">Terça-feira</label>
+      </li>
+      <li>
+      <input type="checkbox" id="quarta" name="diasSemana" value="Quarta-feira">
+      <label for="quarta">Quarta-feira</label>
+      </li>
+      <li>
+      <input type="checkbox" id="quinta" name="diasSemana" value="Quinta-feira">
+      <label for="quinta">Quinta-feira</label>
+      </li>
+      <li>
+      <input type="checkbox" id="sexta" name="diasSemana" value="Sexta-feira">
+      <label for="sexta">Sexta-feira</label>
+      </li>
+      </ul>
+      <label for="profe" class="destaque-label">Selecione um Professor:</label>  
+    <select id="profe" name="profe">prof
+        <option value="0">Professor</option>
+        <script>
+            let Prof = document.querySelector("#profe")
+
+            fetch(`http://localhost:3000/professor`)
+            .then(response => {response.json()
+                .then(dados2 => {
+                    dados2.map((dado2) => {
+                        Prof.innerHTML += `<option value="${dado2.ID}">${dado2.NOME}</option>`
+                    })
+                })
+            })
+            .catch(e => console.log("deu erro: " + e,message))
+        </script>
+    </select><br>
+
+    <script>
+        $(document).ready(function() {
+        $('#profe').select2();
+        });
+    </script>
+    
+    <script>
+      function agendar() {
+        // Obter os valores dos campos de entrada
+        var nome = document.getElementById("nome").value;
+        var telefone = document.getElementById("telefone").value;
+        var data = document.getElementById("data").value;
+        var horario = document.getElementById("horario").value;
+        var professor = document.getElementById("profe").value;
+    
+        // Validar os campos de entrada (opcional)
+        if (nome == "" || telefone == "" || data == "" || horario == "" || professor == 0) {
+          alert("Por favor, preencha todos os campos");
+          return;
+        }
+    
+        // Realizar a lógica de agendamento aqui
+        // ...
+    
+        // Limpar os campos de entrada após agendar (opcional)
+        document.getElementById("nome").value = "";
+        document.getElementById("telefone").value = "";
+        document.getElementById("horario").value = "";
+        document.getElementById("profe").value = 0;
+    
+        // Mostrar uma mensagem de sucesso (opcional)
+        alert("Agendamento realizado com sucesso!");
+      }
+    </script>
+
+<button onclick="agendar()">Agendar</button>
+    </div>
+    <div class="lista-pendente">
+      <h2>Pendente</h2>
+      <ul id="pendente-list"></ul>
+    </div>
+    <div class="lista-concluida">
+      <h2>Concluída</h2>
+      <ul id="concluida-list"></ul>
+    </div>
+  </div>
+
+  <div id="detalhes-agendamento" style="display: none;">
+    <h2>Detalhes do Agendamento</h2>
+    <p><strong>Nome:</strong> <span id="detalhes-nome"></span></p>
+    <p><strong>Telefone:</strong> <span id="detalhes-telefone"></span></p>
+    <p><strong>Horário:</strong> <span id="detalhes-horario"></span></p>
+    <p><strong>Professor:</strong> <span id="detalhes-professor"></span></p>
+    <p><strong>Dias da Semana:</strong> <span id="detalhes-dias"></span></p>
+    <button onclick="fecharDetalhes()">Fechar</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

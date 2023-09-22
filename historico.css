@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: Arial, sans-serif;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #5f9ea0;
+    height: 8vh;
+  }
+  
+  main {
+    background: url("bg.jpg") no-repeat center center;
+    background-size: cover;
+    height: 92vh;
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+    border-radius: 5px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 999px) {
+    body {
+      overflow-x: hidden;
+    }
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 50vw;
+      height: 92vh;
+      background: #23232e;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+  
+  body {
+      font-family: Arial, sans-serif;
+    }
+  
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 70%;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .close {
+      float: right;
+      cursor: pointer;
+    }
+  
+    .close:hover {
+      color: #aaa;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    #dias-da-semana {
+      list-style-type: none;
+      display: flex;
+      padding: 0;
+    }
+    
+    #dias-da-semana li {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    
+    #agendamentos-do-dia {
+      margin-top: 20px;
+    }
+
+  /* Estilos para a área de histórico */
+.historico {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos para o título */
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os dias da semana */
+.dias-da-semana {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dia {
+  text-align: center;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0; /* Cor de fundo padrão */
+  margin: 0 10px; /* Espaço entre os dias */
+  transition: background-color 0.3s; /* Animação de transição de cor de fundo */
+}
+
+/* Estilos para os links dos dias */
+.dia span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Cor do texto */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Estilos para destacar o dia clicado */
+.dia.clicado {
+  background-color: #47ca98; /* Cor de fundo quando clicado */
+  color: #fff; /* Cor do texto quando clicado */
+}
+
+/* Estilos para os agendamentos */
+.agendamentos {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+

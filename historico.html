@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico</title>
+  <link rel="stylesheet" href="historico.css">
+  <!-- Inclua as bibliotecas FullCalendar e jQuery -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+          <a class="logo" href="inicio.html">Agendamentos</a>
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-list">
+            <li><a href="inicio.html">Início</a></li>
+            <li><a href="Cadastrar Aluno.html">Cadastrar Aluno</a></li>
+            <li><a href="Contato.html">Contato</a></li>
+            <li><a href="historico.html">Histórico</a></li>
+          </ul>
+        </nav>
+      </header>
+      <script src="mobile-navbar.js"></script>
+    <div class="container">
+      <div class="historico">
+        <h2>Agendamentos da Semana</h2>
+        <div class="dias-da-semana">
+          <div class="dia">
+            <span>Segunda</span>
+            <div class="agendamentos" id="agendamentos-segunda"></div>
+          </div>
+          <div class="dia">
+            <span>Terça</span>
+            <div class="agendamentos" id="agendamentos-terca"></div>
+          </div>
+          <div class="dia">
+            <span>Quarta</span>
+            <div class="agendamentos" id="agendamentos-quarta"></div>
+          </div>
+          <div class="dia">
+            <span>Quinta</span>
+            <div class="agendamentos" id="agendamentos-quinta"></div>
+          </div>
+          <div class="dia">
+            <span>Sexta</span>
+            <div class="agendamentos" id="agendamentos-sexta"></div>
+          </div>
+        </div>
+      </div>      
+        
+        </div>
+        <script src="historico.js"></script>
+</body>
+</html>
